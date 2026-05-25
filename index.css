@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 97%;
+    --foreground: 220 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 220 20% 25%;
+    --muted: 210 15% 94%;
+    --muted-foreground: 215 14% 46%;
+    --accent: 210 20% 96%;
+    --accent-foreground: 220 20% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 14% 46%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 221 83% 96%;
+    --sidebar-accent-foreground: 221 83% 53%;
+    --sidebar-border: 214 20% 92%;
+    --sidebar-ring: 221 83% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Geist', sans-serif;
+  }
+}
+
+/* ── Custom design tokens ── */
+:root {
+  --warm-bg: #F7F6F3;
+  --surface: #FFFFFF;
+  --surface-secondary: #F0EFEB;
+  --border-warm: #E2E0DA;
+  --border-strong: #C8C5BC;
+  --text-primary: #0F1118;
+  --text-secondary: #5C5A54;
+  --text-muted: #9C9A94;
+  --navy: #0F1E3C;
+  --navy-light: #E8EBF0;
+  --danger: #C8290D;
+  --danger-light: #FEF2EF;
+  --warning-amber: #B45309;
+  --warning-light: #FFFBEB;
+  --success-dark: #166534;
+  --success-light: #F0FDF4;
+}
+
+/* ── Typography utilities ── */
+.font-display { font-family: 'DM Serif Display', serif; }
+.font-mono    { font-family: 'JetBrains Mono', monospace; }
+
+/* ── Animations ── */
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+@keyframes fade-slide-up {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+.animate-fade-up   { animation: fade-slide-up 0.3s ease forwards; }
+.animate-blink     { animation: blink 1.5s ease-in-out infinite; }
+.animate-count-up  { animation: count-up 0.5s ease forwards; }
+
+/* ── Failure / alert animations ── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25%      { transform: translateX(-4px) rotate(-0.5deg); }
+  75%      { transform: translateX(4px) rotate(0.5deg); }
+}
+
+@keyframes fall-middle {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(200px) rotate(15deg); opacity: 0; }
+}
+@keyframes fall-left {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(150px) rotate(-25deg); opacity: 0; }
+}
+@keyframes fall-right {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(150px) rotate(25deg); opacity: 0; }
+}
+
+@keyframes crumble-left {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100px) rotate(-30deg); opacity: 0; }
+}
+@keyframes crumble-right {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100px) rotate(30deg); opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+@keyframes flash-red {
+  0%, 100% { background: transparent; }
+  50%      { background: rgba(200, 41, 13, 0.3); }
+}
+
+@keyframes debris-fade {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.flash-red {
+  animation: flash-red 0.6s ease-in-out 1;
+}
+
+.bridge-shake {
+  animation: shake 0.1s ease-in-out 5;
+}
+.bridge-cables {
+  animation: cables-snap 0.3s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes cables-snap {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.tower-cracks {
+  opacity: 0;
+  animation: cracks-appear 0.3s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes cracks-appear {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.deck-middle {
+  transform-origin: center;
+  animation: fall-middle 0.6s ease forwards;
+  animation-delay: 0.8s;
+}
+.deck-left {
+  transform-origin: left center;
+  animation: fall-left 0.6s ease forwards;
+  animation-delay: 1s;
+}
+.deck-right {
+  transform-origin: right center;
+  animation: fall-right 0.6s ease forwards;
+  animation-delay: 1s;
+}
+
+.tower-left {
+  transform-origin: bottom center;
+  animation: crumble-left 0.6s ease forwards;
+  animation-delay: 1.2s;
+}
+.tower-right {
+  transform-origin: bottom center;
+  animation: crumble-right 0.6s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.debris {
+  opacity: 0;
+  animation: debris-fade 0.5s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.failure-text-flicker {
+  animation: flicker 1.2s ease-in-out 0.8s infinite;
+}
+
+@keyframes tremble {
+  0%, 100% { transform: translateX(0); }
+  33%      { transform: translateX(-2px); }
+  66%      { transform: translateX(2px); }
+}
+
+.bridge-tremble {
+  animation: tremble 0.3s infinite;
+}
