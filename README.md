@@ -1,73 +1,32 @@
-# Welcome to your Lovable project
+# InfraWatch AI – Smart Structure Monitoring System
 
-## Project info
+An intelligent infrastructure monitoring platform combining real-time 
+sensor data, AI analytics, and digital twin simulations to detect 
+structural risks early.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Problem
+Infrastructure like bridges, buildings, and tunnels fail due to delayed 
+inspections and lack of real-time monitoring. Traditional methods are 
+manual and unable to detect early risks.
 
-## How can I edit this code?
+## Solution
+InfraWatch AI provides real-time monitoring with AI-powered anomaly 
+detection and automated engineer alerts.
 
-There are several ways of editing your application.
+## My Contributions
+- Generated synthetic sensor data for bridges, buildings, dams, 
+  highways, and tunnels
+- Built anomaly detection using Isolation Forest and risk prediction models
+- Built first 4 dashboards on the frontend
+- Integrated interactive risk map using Leaflet.js
+- Added investigate, escalate to engineer, and mark as resolved features
+- Built escrow-based task tracking with step-by-step mitigation plans 
+  based on hazard level
 
-**Use Lovable**
+## Tech Stack
+- Python, Isolation Forest, ML risk models
+- Leaflet.js, React (frontend dashboards)
+- Groq API, Twilio (teammate integrations)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Demo
+https://youtu.be/2Cpi37qOXi0?si=iHsSIgz2cMjIm8PT
